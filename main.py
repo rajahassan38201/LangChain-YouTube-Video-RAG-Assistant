@@ -126,4 +126,5 @@ async def chat(req: ChatRequest):
         for chunk in active_chain.stream({"question": req.question, "history": req.history}):
             yield chunk
 
+
     return StreamingResponse(generate(), media_type="text/plain")
